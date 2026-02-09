@@ -5,7 +5,7 @@ Project – Iteration 0
 <h2> SOEN 342: Software Requirements and Deployment Objective </h2>
 The project will be developed incrementally over 3–4 iterations, following the formal software engineering process taught in the course.
 
-## :dart: 🎯 Iteration 0 Objectives
+## :dart: Iteration 0 Objectives
 In this iteration, our tasks are:
 1. Form a team and assign a team leader
 2. Register the team with the Lab Instructor (Project Coordinator)
