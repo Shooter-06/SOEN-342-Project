@@ -28,30 +28,28 @@ GitHub Username: Shooter-06
 
 ## 🔑 GitHub Marker Access
 The following GitHub usernames have been invited as collaborators, as required:
-vinishamanek
-katkes
-cmezzac
-cristina-trofimov
-Mehrad25Software
-mirchandani-mohnish
-haniehst
-yasminehilout
-vanessadp17
+  - vinishamanek
+  - katkes
+  - cmezzac
+  - cristina-trofimov
+  - Mehrad25Software
+  - mirchandani-mohnish
+  - haniehst
+  - yasminehilout
+  - vanessadp17
 
 
 <h2>🤖Technologies and Techniques🤖</h2>
 
 ## 🛠 Tools & Technology
-Recommended Language: Java (Object-Oriented Architecture)
-Frameworks Allowed: Persistence & concurrency only
-Interface Requirement: CLI is sufficient (UI not graded)
+  - Recommended Language: Java (Object-Oriented Architecture)
+  - Frameworks Allowed: Persistence & concurrency only
+  - Interface Requirement: CLI is sufficient (UI not graded)
 
 ## 📌 Project Development Process
 This project must remain consistent across all artifacts:
-Requirements
-Analysis
-UML Design
-Implementation
-Testing & Deployment
-
-Framework: ...  • Programming Languages: JAVA ,  • Page Design and Styling:...
+  - Requirements
+  - Analysis
+  - UML Design
+  - Implementation
+  - Testing & Deployment
