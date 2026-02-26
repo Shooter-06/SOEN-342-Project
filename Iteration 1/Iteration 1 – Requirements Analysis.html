@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iteration 1 - Requirements Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #003366;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .important {
+            background-color: #f4f8ff;
+            padding: 15px;
+            border-left: 5px solid #003366;
+        }
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Iteration 1 – Requirements Analysis</h1>
+
+<div class="section">
+    <h2>Objective</h2>
+    <p>
+        The purpose of Iteration 1 is to establish the core Requirements Analysis artifacts 
+        for the selected critical use case.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Scope of Iteration 1</h2>
+    <p>
+        This iteration focuses only on analysis (not design or implementation).
+        The system is treated as a black box.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Deliverables</h2>
+
+    <h3>1. Use Case Specification</h3>
+    <ul>
+        <li>Use case name</li>
+        <li>Primary actor</li>
+        <li>Scope</li>
+        <li>Level</li>
+        <li>Preconditions</li>
+        <li>Postconditions (Success Guarantee)</li>
+        <li>Main Success Scenario (numbered steps)</li>
+        <li>At least one Failure Scenario</li>
+    </ul>
+
+    <div class="important">
+        Critical use cases require detailed specification.
+    </div>
+
+    <h3>2. Conceptual Class Diagram (Domain Model)</h3>
+    <ul>
+        <li>Identify conceptual classes (not software classes)</li>
+        <li>Include attributes</li>
+        <li>Include associations with multiplicities</li>
+        <li>Apply generalization when appropriate</li>
+        <li>Respect the “is-a” rule</li>
+        <li>Respect the 100% rule</li>
+    </ul>
+
+    <h3>3. System Sequence Diagram (SSD)</h3>
+    <ul>
+        <li>Show interaction between actor and system</li>
+        <li>System treated as a black box</li>
+        <li>Include system events</li>
+        <li>Include return values (if any)</li>
+        <li>Include loop notation if repetition exists</li>
+    </ul>
+
+    <h3>4. System Operations</h3>
+    <ul>
+        <li>Extract operations directly from SSD</li>
+        <li>Operations must match system events</li>
+        <li>Use clear naming conventions (verb-based)</li>
+    </ul>
+
+    <h3>5. Operation Contracts</h3>
+    <ul>
+        <li>One contract per system operation</li>
+        <li>Include operation signature</li>
+        <li>Include preconditions</li>
+        <li>Include postconditions</li>
+    </ul>
+
+    <h4>Postconditions must describe:</h4>
+    <ul>
+        <li>Instance creation or deletion</li>
+        <li>Attribute modification</li>
+        <li>Associations formed or broken</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Submission Requirements</h2>
+    <ul>
+        <li>All diagrams must follow UML notation</li>
+        <li>Consistency between use case, SSD, and contracts</li>
+        <li>No design-level details</li>
+        <li>No implementation code</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Evaluation Criteria</h2>
+    <ul>
+        <li>Correct UML notation</li>
+        <li>Conceptual correctness</li>
+        <li>Completeness</li>
+        <li>Internal consistency</li>
+        <li>Application of generalization where justified</li>
+    </ul>
+</div>
+
+</body>
+</html>
