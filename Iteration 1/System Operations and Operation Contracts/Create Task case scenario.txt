@@ -1,0 +1,118 @@
+========================================================
+CRITICAL USE CASE: CREATE TASK
+========================================================
+
+1. Use Case Name
+----------------
+Create Task
+
+2. Primary Actor
+----------------
+User
+
+3. Scope
+--------
+Personal Task Management System
+
+4. Level
+--------
+User goal
+
+5. Trigger
+----------
+User selects "Create Task"
+
+6. Preconditions
+----------------
+- User is using the system.
+
+7. Postconditions (Success Guarantee)
+-------------------------------------
+- A Task instance is created.
+- Task has:
+    - Title set
+    - Optional description set
+    - Priority set
+    - Optional dueDate set
+    - creationDate set
+    - Status = open
+- An ActivityEntry is recorded.
+
+--------------------------------------------------------
+MAIN SUCCESS SCENARIO
+--------------------------------------------------------
+
+1. User chooses to create a task.
+2. System prompts for task details.
+3. User enters:
+       - title
+       - optional description
+       - priority
+       - optional dueDate
+4. User confirms creation.
+5. System creates the Task.
+6. System sets:
+       - creationDate to the current date/time
+       - status to open
+7. System records an ActivityEntry indicating task creation.
+8. System returns confirmation including the taskID.
+
+--------------------------------------------------------
+FAILURE SCENARIO
+--------------------------------------------------------
+
+Example: Missing Title
+
+3a. User submits task without title.
+3b. System displays an error message.
+3c. Use case resumes at step 3.
+
+This use case includes both a success and a failure scenario.
+
+========================================================
+SYSTEM SEQUENCE DIAGRAM (SSD): CREATE TASK
+========================================================
+
+Actor: User
+System: Personal Task Management System
+
+User -> System:
+    createTask(title, description?, priority, dueDate?)
+
+System -> User:
+    confirmation(taskID)
+
+========================================================
+SYSTEM OPERATIONS
+========================================================
+
+Operation:
+    createTask(title, description?, priority, dueDate?)
+
+========================================================
+OPERATION CONTRACT
+========================================================
+
+Operation Contract for createTask
+
+Preconditions:
+- title is provided and is non-empty.
+
+Postconditions:
+- A Task instance t was created.
+- t.title = title
+- t.description = description (if provided)
+- t.priority = priority
+- t.dueDate = dueDate (if provided)
+- t.creationDate was set to the current date/time.
+- t.status = open
+
+Additionally:
+- An ActivityEntry instance a was created.
+- a.timestamp was set to the current date/time.
+- a.actionType = "createTask"
+- a was associated with t.
+
+========================================================
+END OF DOCUMENT
+========================================================
