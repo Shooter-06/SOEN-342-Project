@@ -1,17 +1,18 @@
 # SOEN 342 – Software Requirements and Deployment
 
-Project – Iteration 0
+Project – Iteration 1
 
 <h2> SOEN 342: Software Requirements and Deployment Objective </h2>
 The project will be developed incrementally over 3–4 iterations, following the formal software engineering process taught in the course.
 
-## :dart: Iteration 0 Objectives
-In this iteration, our tasks are:
-1. Form a team and assign a team leader
-2. Register the team with the Lab Instructor (Project Coordinator)
-3. Set up a GitHub repository with proper access
-4. Add all required markers as collaborators
-5. Include this README file with team credentials
+## :dart: Iteration 1 Objectives
+In this iteration, our tasks are to create the following:
+1. Use-case diagram, including critical and non-critical use-cases.
+2. UML domain model
+3. System sequence diagram(s) to capture success and failure scenarios for critical usecases.
+4. One fully-dressed scenario for a critical use-case, with at least one success and one
+failure case (equivalent system sequence diagram to be provided in the above).
+5. Identification of system operations and operation contracts.
 
 
 <h2>🍀Team information🍀</h2>
@@ -32,6 +33,14 @@ Student ID: 40279628
 
 
 Github Username: Gracieidj
+
+<h3>Joshua Vilda</h3>
+Role: TBD
+
+Student ID: 40282320
+
+
+Github Username: Josh-Vilda
 
 
 ## 🔑 GitHub Marker Access
