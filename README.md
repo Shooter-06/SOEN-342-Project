@@ -5,7 +5,7 @@ Project – Iteration 1
 <h2> SOEN 342: Software Requirements and Deployment Objective </h2>
 The project will be developed incrementally over 3–4 iterations, following the formal software engineering process taught in the course.
 
-## :dart: Iteration 0 Objectives
+## :dart: Iteration 1 Objectives
 In this iteration, our tasks are to create the following:
 1. Use-case diagram, including critical and non-critical use-cases.
 2. UML domain model
