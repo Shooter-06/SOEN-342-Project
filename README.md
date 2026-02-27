@@ -25,6 +25,14 @@ Student ID: 40297573
 
 GitHub Username: Shooter-06
 
+<h3>Gracie Idonije</h3>
+Role: TBD
+
+Student ID: 40279628
+
+
+Github Username: Gracieidj
+
 
 ## 🔑 GitHub Marker Access
 The following GitHub usernames have been invited as collaborators, as required:
