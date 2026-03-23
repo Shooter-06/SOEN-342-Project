@@ -52,4 +52,5 @@ public class Task {
     }
 
     public String getTitle() { return title; }
+    public String getDescription() { return description; }
 }
