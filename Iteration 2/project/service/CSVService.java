@@ -20,7 +20,7 @@ public class CSVService {
     public void writeFile(List<Task> tasks, String filePath) throws Exception {
         BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
         for (Task t : tasks) {
-            bw.write(t.getTitle());
+            bw.write(t.getTitle() + "," + t.getDescription());
             bw.newLine();
         }
         bw.close();
