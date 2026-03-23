@@ -48,4 +48,33 @@ public class Tasks {
         taskList.add(t);
         return t;
     }
+
+
+    public void importTasks(String filePath) {
+        try {
+            List<String[]> rows = csv.readFile(filePath);
+
+            for (String[] row : rows) {
+                String title = row[0];
+                String description = row.length > 1 ? row[1] : "";
+
+                Task t = new Task(title, description, new Date(), PriorityLevel.MEDIUM);
+                taskList.add(t);
+            }
+
+            System.out.println("Imported tasks from CSV");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void exportTasks(String filePath) {
+        try {
+            csv.writeFile(taskList.getAll(), filePath);
+            System.out.println("Exported tasks to CSV");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
