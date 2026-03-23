@@ -1,0 +1,258 @@
+1. Create Task
+------------------------------------------------------------
+Operation: createTask(title, description, dueDate, priority)
+
+Use Case: Create Task
+
+Preconditions:
+- User is authenticated
+
+Postconditions:
+- A new Task instance t is created
+- t.title is set to title
+- t.description is set to description
+- t.dueDate is set to dueDate
+- t.priority is set to priority
+- t.status is set to "OPEN"
+- t is added to the system
+
+2. Update Task
+------------------------------------------------------------
+Operation: updateTask(taskId, updatedFields)
+
+Use case: Update Task
+
+Preconditions:
+- Task with taskId exists
+
+Postconditions:
+- The specified attributes of the Task are updated
+- Task retains its identity
+
+3. Complete Task
+------------------------------------------------------------
+Operation: completeTask(taskId)
+
+Use Case: Complete Task
+
+Preconditions:
+- Task with taskId exists
+- Task is not already completed
+
+Postconditions:
+- Task.status = "COMPLETED"
+
+
+4. Cancel Task
+------------------------------------------------------------
+Operation: cancelTask(taskId)
+
+Use Case: Cancel Task
+
+Preconditions:
+- Task with taskId exists
+
+Postconditions:
+- Task.status = "CANCELLED"
+
+5. Search Task
+------------------------------------------------------------
+Operation: searchTasks(filters)
+
+Use Case: Search Tasks
+
+Preconditions:
+- None
+
+Postconditions:
+- A list of Tasks matching the filters is returned
+- No system state is modified
+
+6. Import Tasks from CSV Task
+------------------------------------------------------------
+Operation: importTasks(file)
+
+Use Case: Import Tasks from CSV
+
+Preconditions:
+- File is a valid CSV format
+
+Postconditions:
+- For each valid row in the file:
+  - A new Task instance is created
+  - Task attributes are initialized from CSV data
+- All created tasks are added to the system
+
+7. Export Tasks from CSV Task
+------------------------------------------------------------
+Operation: exportTasks()
+
+Use Case: Export Tasks to CSV
+
+Preconditions:
+- At least one task exists
+
+Postconditions:
+- A CSV file containing all tasks is generated
+- No system state is modified
+
+8. Assign Collaborator
+------------------------------------------------------------
+Operation: assignCollaborator(taskId, collaborator)
+
+Use Case: Assign Collaborator
+
+Preconditions:
+- Task with taskId exists
+- Collaborator is a valid user
+
+Postconditions:
+- A Subtask instance s is created
+- s is associated with the Task
+- s is assigned to the collaborator
+
+9. Create Recurring Task
+------------------------------------------------------------
+Operation: createRecurringTask(title, pattern)
+
+Use Case: Create Recurring Task
+
+Preconditions:
+- Valid recurrence pattern is provided
+
+Postconditions:
+- A Task instance t is created
+- A RecurringPattern instance rp is created
+- rp is associated with t
+
+10. Add Subtask
+------------------------------------------------------------
+Operation: addSubtask(taskId, subtaskDetails)
+
+Use Case: Add Subtask
+
+Preconditions:
+- Task with taskId exists
+
+Postconditions:
+- A Subtask instance s is created
+- s is associated with the Task
+
+11. Update Subtask
+------------------------------------------------------------
+Operation: updateSubtask(subtaskId, updatedFields)
+
+Use Case: Update Subtask
+
+Preconditions:
+- Subtask exists
+
+Postconditions:
+- Subtask attributes are updated
+
+12. Complete Subtask
+------------------------------------------------------------
+Operation: completeSubtask(subtaskId)
+
+Use Case: Complete Subtask
+
+Preconditions:
+- Subtask exists
+
+Postconditions:
+- Subtask.status = "COMPLETED"
+
+13. Create Project
+------------------------------------------------------------
+Operation: createProject(name)
+
+Use Case: Create Project
+
+Preconditions:
+- None
+
+Postconditions:
+- A Project instance p is created
+- p.name = name
+
+14. Update Project
+------------------------------------------------------------
+Operation: updateProject(projectId, updatedFields)
+
+Use Case: Update Project
+
+Preconditions:
+- Project with projectId exists
+
+Postconditions:
+- The specified attributes of the Project are updated
+- Project retains its identity
+
+15. Assign Task to Project
+------------------------------------------------------------
+Operation: assignTaskToProject(taskId, projectId)
+
+Use Case: Assign Task to Project
+
+Preconditions:
+- Task exists
+- Project exists
+
+Postconditions:
+- Task is associated with the Project
+
+16. Move Task Between Project
+------------------------------------------------------------
+Operation: moveTaskBetweenProjects(taskId, sourceProjectId, targetProjectId)
+
+Use Case: Move Task Between Projects
+
+Preconditions:
+- Task exists
+- Source Project exists
+- Target Project exists
+- Task is associated with source project
+
+Postconditions:
+- Task is removed from source project
+- Task is associated with target project
+
+17. Create Tag
+------------------------------------------------------------
+Operation: createTag(name)
+
+Use Case: Create Tag
+
+Preconditions:
+- Tag with the same name does not already exist
+
+Postconditions:
+- A new Tag instance t is created
+- t.name is set to name
+- t is added to the system
+
+18. Add Tag to Task
+------------------------------------------------------------
+Operation: addTag(taskId, tag)
+
+Use Case: Add Tag to Task
+
+Preconditions:
+- Task exists
+- Tag exists
+
+Postconditions:
+- Tag is associated with the Task
+
+19. Remove Tag from Task
+------------------------------------------------------------
+Operation: removeTag(taskId, tag)
+
+Use Case: Remove Tag from Task
+
+Preconditions:
+- Task exists
+- Tag is associated with the Task
+
+Postconditions:
+- Tag is removed from the Task
