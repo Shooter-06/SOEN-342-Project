@@ -24,5 +24,13 @@ public class main {
         }
 
         System.out.println("\nTotal found: " + results.size());
+
+        // === EXPORT TASKS TO CSV ===
+        system.exportTasks("tasks.csv");
+        System.out.println("Tasks exported to tasks.csv");
+
+        // === IMPORT TASKS FROM CSV ===
+        system.importTasks("tasks.csv");
+        System.out.println("Tasks imported from tasks.csv");
     }
 }
