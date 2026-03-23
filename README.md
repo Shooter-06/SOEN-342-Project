@@ -1,19 +1,21 @@
 # SOEN 342 – Software Requirements and Deployment
 
-Project – Iteration 1
+Project – Iteration 2
 
 <h2> SOEN 342: Software Requirements and Deployment Objective </h2>
 The project will be developed incrementally over 3–4 iterations, following the formal software engineering process taught in the course.
 
-## :dart: Iteration 1 Objectives
+## :dart: Iteration 2 Objectives
 In this iteration, our tasks are to create the following:
-1. Use-case diagram, including critical and non-critical use-cases.
-2. UML domain model
-3. System sequence diagram(s) to capture success and failure scenarios for critical usecases.
-4. One fully-dressed scenario for a critical use-case, with at least one success and one
-failure case (equivalent system sequence diagram to be provided in the above).
-5. Identification of system operations and operation contracts.
-
+1. Updated Use-case diagram, including critical and non-critical use-cases
+2. Updated UML domain model
+3. Updated SSDs
+4. UML interaction diagrams for critical use-cases
+5. UML class diagram (partial design model)
+6.  A Proof of Concept with the following functionality:
+  a) Task Search and View
+  b) Import from CSV
+  c) Export to CSV
 
 <h2>🍀Team information🍀</h2>
 
