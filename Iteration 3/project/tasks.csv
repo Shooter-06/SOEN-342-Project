@@ -1,0 +1,4 @@
+title,description,dueDate,priority,status
+Study UML,Exam prep,2026-04-01 18:00:00,HIGH,OPEN
+Workout Plans,Gym session,2026-04-02 10:00:00,MEDIUM,OPEN
+Shopping List,Buy groceries,2026-04-03 16:30:00,LOW,COMPLETED
