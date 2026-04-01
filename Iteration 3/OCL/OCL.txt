@@ -1,0 +1,22 @@
+OCL Required COnstraints:
+--------------------------
+
+1. Maximum subtasks per task
+    Context Task
+    inv maxSubtasks:
+    self.subtasks->size() <= 20
+
+2. Open tasks without due date limit
+    Context Tasks
+    inv openTasksWithoutDueDateLimit:
+    self.tasks->select(t | t.status = Status::OPEN and t.dueDate = null)->size() <= 50
+
+3. Collaborator category limit
+    context Collaborator
+    inv positiveLimit:
+        self.maxTasks > 0
+
+4. No collaborator overload (CRITICAL)
+    context Collaborator
+    inv noOverload:
+        self.tasks->select(t | t.status = Status::OPEN)->size() <= self.maxTasks
