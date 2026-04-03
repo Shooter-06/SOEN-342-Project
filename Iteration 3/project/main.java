@@ -1,8 +1,7 @@
 import controller.Tasks;
+import java.util.*;
 import model.Task;
 import model.enums.PriorityLevel;
-
-import java.util.*;
 
 public class main {
 
@@ -46,6 +45,10 @@ public class main {
                     break;
 
                 case 7:
+                    overloadedCollaborator(system);
+                    break;
+
+                case 8:
                     System.out.println("Exiting...");
                     running = false;
                     break;
@@ -65,7 +68,8 @@ public class main {
         System.out.println("4. Export ALL Tasks to ICS");
         System.out.println("5. Export OPEN Tasks to ICS");
         System.out.println("6. Import Tasks (CSV)");
-        System.out.println("7. Exit");
+        System.out.println("7.  Overloaded Collaborator");
+        System.out.println("8. Exit");
     }
 
     // ================= FEATURES =================
@@ -129,6 +133,9 @@ public class main {
         }
     }
 
+    private static void overloadedCollaborator(Tasks system) {
+        System.out.println("");
+    }
     // ================= HELPERS =================
     private static PriorityLevel choosePriority() {
         System.out.println("Choose priority:");
