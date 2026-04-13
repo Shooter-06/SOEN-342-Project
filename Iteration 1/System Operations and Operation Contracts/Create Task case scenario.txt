@@ -79,40 +79,10 @@ System: Personal Task Management System
 User -> System:
     createTask(title, description?, priority, dueDate?)
 
-System -> User:
-    confirmation(taskID)
-
-========================================================
-SYSTEM OPERATIONS
-========================================================
-
-Operation:
-    createTask(title, description?, priority, dueDate?)
-
-========================================================
-OPERATION CONTRACT
-========================================================
-
-Operation Contract for createTask
-
-Preconditions:
-- title is provided and is non-empty.
-
-Postconditions:
-- A Task instance t was created.
-- t.title = title
-- t.description = description (if provided)
-- t.priority = priority
-- t.dueDate = dueDate (if provided)
-- t.creationDate was set to the current date/time.
-- t.status = open
-
-Additionally:
-- An ActivityEntry instance a was created.
-- a.timestamp was set to the current date/time.
-- a.actionType = "createTask"
-- a was associated with t.
-
-========================================================
-END OF DOCUMENT
-========================================================
+alt valid input
+    System -> User:
+        confirmation(taskID)
+else invalid input (e.g., missing title)
+    System -> User:
+        error("Invalid input")
+end

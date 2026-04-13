@@ -1,0 +1,76 @@
+SYSTEM OPERATIONS
+========================================================
+
+Operation:
+    createTask(title, description?, priority, dueDate?)
+
+OPERATION CONTRACTS
+========================================================
+
+Contract: createTask
+--------------------------------------------------------
+
+Operation:
+createTask(title: String, description: String, priority: PriorityLevel, dueDate: Date)
+
+Preconditions:
+- title is provided and non-empty.
+
+Postconditions:
+1. A Task instance t was created. [instance creation]
+2. t.title = title
+3. t.description = description (if provided)
+4. t.priority = priority
+5. t.dueDate = dueDate (if provided)
+6. t.creationDate was set to the current date/time.
+7. t.status = "open"
+8. t is stored in the system. [association]
+
+Additionally:
+9. An ActivityEntry instance a was created. [instance creation]
+10. a.timestamp was set to the current date/time.
+11. a.actionType = "createTask"
+12. a was associated with t. [association]
+
+Contract: updateTask
+--------------------------------------------------------
+
+Operation:
+updateTask(taskID, updatedFields)
+
+Preconditions:
+- A Task with taskID exists.
+
+Postconditions:
+1. Task t was retrieved.
+2. Attributes of t were updated according to updatedFields. [attribute modification]
+3. Changes are saved.
+4. An ActivityEntry was created to record the update. [instance creation + association]
+
+Contract: completeTask
+--------------------------------------------------------
+
+Operation:
+completeTask(taskID)
+
+Preconditions:
+- A Task with taskID exists.
+
+Postconditions:
+1. Task t.status was set to "completed". [attribute modification]
+2. An ActivityEntry was created to record completion. [instance creation]
+3. ActivityEntry is associated with t. [association]
+
+Contract: cancelTask
+--------------------------------------------------------
+
+Operation:
+cancelTask(taskID)
+
+Preconditions:
+- A Task with taskID exists.
+
+Postconditions:
+1. Task t.status was set to "cancelled". [attribute modification]
+2. An ActivityEntry was created to record cancellation. [instance creation]
+3. ActivityEntry is associated with t. [association]
