@@ -81,12 +81,4 @@ public class Task {
         return recurringPattern;
     }
 
-    public Task getAllTasks() {
-        Task copy = new Task(this.title, this.description, this.dueDate, this.priority);
-        copy.status = this.status;
-        copy.subtasks.addAll(this.subtasks);
-        copy.collaborators.addAll(this.collaborators);
-        copy.recurringPattern = this.recurringPattern;
-        return copy;
-    }
 }

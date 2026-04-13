@@ -49,7 +49,6 @@ public class Tasks {
         return t;
     }
 
-
     public void importTasks(String filePath) {
         try {
             List<String[]> rows = csv.readFile(filePath);
@@ -57,8 +56,11 @@ public class Tasks {
             for (String[] row : rows) {
                 String title = row[0];
                 String description = row.length > 1 ? row[1] : "";
+                PriorityLevel priority = row.length > 2
+                        ? PriorityLevel.valueOf(row[2])
+                        : PriorityLevel.MEDIUM;
 
-                Task t = new Task(title, description, new Date(), PriorityLevel.MEDIUM);
+                Task t = new Task(title, description, new Date(), priority);
                 taskList.add(t);
             }
 
@@ -78,17 +80,7 @@ public class Tasks {
         }
     }
 
-    // public Task[] getAllTasks() {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'getAllTasks'");
-    // }
-
-    public Task[] getAllTasks() {
-        Task copy = new Task(this.title, this.description, this.dueDate, this.priority);
-        copy.status = this.status;
-        copy.subtasks.addAll(this.subtasks);
-        copy.collaborators.addAll(this.collaborators);
-        copy.recurringPattern = this.recurringPattern;
-        return copy;
+    public List<Task> getAllTasks() {
+        return taskList.getAll();
     }
 }
