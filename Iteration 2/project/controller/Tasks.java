@@ -11,8 +11,8 @@ import storage.TaskList;
 
 public class Tasks {
 
-    private TaskList taskList = new TaskList();
-    private CSVService csv = new CSVService();
+    private final TaskList taskList = new TaskList();
+    private final CSVService csv = new CSVService();
 
     public Task createTask(String title, String desc, Date dueDate, PriorityLevel priority) {
         Task t = new Task(title, desc, dueDate, priority);
@@ -65,7 +65,7 @@ public class Tasks {
             System.out.println("Imported tasks from CSV");
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error importing tasks: " + e.getMessage());
         }
     }
 
@@ -74,7 +74,21 @@ public class Tasks {
             csv.writeFile(taskList.getAll(), filePath);
             System.out.println("Exported tasks to CSV");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error exporting tasks: " + e.getMessage());
         }
+    }
+
+    // public Task[] getAllTasks() {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'getAllTasks'");
+    // }
+
+    public Task[] getAllTasks() {
+        Task copy = new Task(this.title, this.description, this.dueDate, this.priority);
+        copy.status = this.status;
+        copy.subtasks.addAll(this.subtasks);
+        copy.collaborators.addAll(this.collaborators);
+        copy.recurringPattern = this.recurringPattern;
+        return copy;
     }
 }

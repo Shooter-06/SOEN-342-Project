@@ -10,9 +10,9 @@ import model.enums.TaskStatus;
 public class Task {
     private String title;
     private String description;
-    private Date dueDate;
-    private PriorityLevel priority;
-    private TaskStatus status;
+    private final Date dueDate;
+    private final PriorityLevel priority;
+    public TaskStatus status;
 
     public Task(String title, String description, Date dueDate, PriorityLevel priority) {
         this.title = title;
@@ -22,9 +22,9 @@ public class Task {
         this.status = TaskStatus.OPEN;
     }
 
-    private List<SubTask> subtasks = new ArrayList<>();
-    private List<Collaborator> collaborators = new ArrayList<>();
-    private RecurringPattern recurringPattern;
+    public final List<SubTask> subtasks = new ArrayList<>();
+    public final List<Collaborator> collaborators = new ArrayList<>();
+    public RecurringPattern recurringPattern;
 
     public void update(Map<String, Object> fields) {
         if (fields.containsKey("title")) this.title = (String) fields.get("title");
@@ -52,4 +52,41 @@ public class Task {
     }
 
     public String getTitle() { return title; }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public TaskStatus getStatus() {
+        return status;
+    }
+
+    public PriorityLevel getPriority() {
+        return priority;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    
+    public List<SubTask> getSubtasks() {
+        return subtasks;
+    }
+
+    public List<Collaborator> getCollaborators() {
+        return collaborators;
+    }
+
+    public RecurringPattern getRecurringPattern() {
+        return recurringPattern;
+    }
+
+    public Task getAllTasks() {
+        Task copy = new Task(this.title, this.description, this.dueDate, this.priority);
+        copy.status = this.status;
+        copy.subtasks.addAll(this.subtasks);
+        copy.collaborators.addAll(this.collaborators);
+        copy.recurringPattern = this.recurringPattern;
+        return copy;
+    }
 }

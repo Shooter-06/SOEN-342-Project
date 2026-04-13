@@ -9,7 +9,7 @@ public class main {
         Tasks system = new Tasks();
 
         System.out.println("=== CREATE TASK ===");
-        Task t = system.createTask("Study UML", "Exam prep", new Date(), PriorityLevel.HIGH);
+        Task t = system.createTask("SOEN 342", "Software Engineering Class in 3th Year", new Date(), PriorityLevel.HIGH);
         System.out.println("Task created: " + t.getTitle());
 
         System.out.println("\n=== COMPLETE TASK ===");
@@ -17,7 +17,7 @@ public class main {
         System.out.println("Task completed");
 
         System.out.println("\n=== SEARCH TASK ===");
-        List<Task> results = system.searchTasks("Study");
+        List<Task> results = system.searchTasks("SOEN 342");
 
         for (Task task : results) {
             System.out.println("- " + task.getTitle());
@@ -31,6 +31,9 @@ public class main {
 
         // === IMPORT TASKS FROM CSV ===
         system.importTasks("tasks.csv");
+        for(Task task : system.getAllTasks()) {
+            System.out.println(task.getTitle());
+        }
         System.out.println("Tasks imported from tasks.csv");
     }
 }

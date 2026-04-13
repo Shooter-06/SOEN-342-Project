@@ -4,7 +4,7 @@ import java.util.*;
 import model.Task;
 
 public class TaskList {
-    private List<Task> tasks = new ArrayList<>();
+    private final List<Task> tasks = new ArrayList<>();
 
     public void add(Task t) {
         tasks.add(t);

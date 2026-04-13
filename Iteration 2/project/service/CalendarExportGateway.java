@@ -48,7 +48,7 @@ public class CalendarExportGateway {
             System.out.println("ICS file created successfully");
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error exporting to ICS: " + e.getMessage());
         }
     }
 
