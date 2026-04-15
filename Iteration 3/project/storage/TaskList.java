@@ -3,10 +3,12 @@ package storage;
 import java.util.*;
 import model.Task;
 import model.enums.TaskStatus;
+import service.TaskPersistence;
 
 public class TaskList {
 
     private List<Task> tasks = new ArrayList<>();
+    public TaskPersistence taskPersistence = new TaskPersistence();
 
     public void add(Task t) {
         if (t.getStatus() == TaskStatus.OPEN && t.getDueDate() == null) {
@@ -19,6 +21,8 @@ public class TaskList {
         }
 
         tasks.add(t);
+        // Save the task to the database
+        taskPersistence.saveTask(t);
     }
 
     public Task find(int id) {
@@ -62,4 +66,9 @@ public class TaskList {
         }
         return result;
     }
+
+    public TaskList() {
+        tasks = taskPersistence.loadTasks();
+    }
+
 }

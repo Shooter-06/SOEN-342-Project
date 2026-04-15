@@ -6,20 +6,27 @@ import model.enums.CollaboratorCategory;
 import model.enums.TaskStatus;
 
 public class Collaborator {
-
-    private String name;
-    private CollaboratorCategory category;
+    private final String name;
+    private final CollaboratorCategory category;
+    private final List<Task>  assignedTask;
+    public final int taskLimit;
     private int maxTasks;
-
     private List<Task> tasks = new ArrayList<>();
-
+    
     public Collaborator(String name, CollaboratorCategory category, int maxTasks) {
-        if (maxTasks <= 0) {
-            throw new IllegalArgumentException("maxTasks must be positive");
-        }
         this.name = name;
         this.category = category;
         this.maxTasks = maxTasks;
+        this.assignedTask = new ArrayList<>();
+        switch (category) {
+            case JUNIOR -> this.taskLimit = 10;
+            case INTERMEDIATE -> this.taskLimit = 5;
+            case SENIOR -> this.taskLimit = 2;
+            default -> throw new IllegalArgumentException("Unknown category: " + category);
+        }
+        if (maxTasks <= 0) {
+            throw new IllegalArgumentException("maxTasks must be positive");
+        }
     }
 
     public void assignTask(Task t) {

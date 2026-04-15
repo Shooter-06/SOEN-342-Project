@@ -14,8 +14,8 @@ import java.text.SimpleDateFormat;
 
 public class Tasks {
 
-    private TaskList taskList = new TaskList();
-    private CSVService csv = new CSVService();
+    private final TaskList taskList = new TaskList();
+    private final CSVService csv = new CSVService();
 
     private CalendarExportGateway calendarGateway = new CalendarExportGateway();
 
@@ -63,30 +63,29 @@ public class Tasks {
             for (String[] row : rows) {
 
                 String title = row[0];
-                String description = row[1];
+                String description = row.length > 1 ? row[1] : "";
+                PriorityLevel priority = row.length > 2
+                        ? PriorityLevel.valueOf(row[2])
+                        : PriorityLevel.MEDIUM;
 
                 Date dueDate = null;
                 try {
-                    dueDate = csvFormat.parse(row[2]);
+                    dueDate = csvFormat.parse(row[3]);
                 } catch (Exception e) {
                     System.out.println("Invalid date format");
                 }
-
-                PriorityLevel priority = PriorityLevel.valueOf(row[3]);
                 TaskStatus status = TaskStatus.valueOf(row[4]);
-
                 Task t = new Task(title, description, dueDate, priority);
-
                 if (status == TaskStatus.COMPLETED) {
                     t.complete();
                 }
-
                 taskList.add(t);
             }
 
             System.out.println("Imported tasks from CSV");
 
         } catch (Exception e) {
+            System.out.println("Error occurred while importing tasks from CSV");
         }
     }
 
@@ -95,6 +94,7 @@ public class Tasks {
             csv.writeFile(taskList.getAll(), filePath);
             System.out.println("Exported tasks to CSV");
         } catch (Exception e) {
+            System.out.println("Error exporting tasks: " + e.getMessage());
         }
     }
 
