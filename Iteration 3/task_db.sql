@@ -1,6 +1,8 @@
-CREATE DATABASE task_db;
+CREATE DATABASE IF NOT EXISTS task_db;
+
 USE task_db;
-CREATE TABLE tasks (
+
+CREATE TABLE IF NOT EXISTS tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
