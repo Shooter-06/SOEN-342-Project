@@ -1,5 +1,6 @@
 package controller;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import model.Collaborator;
 import model.RecurringPattern;
@@ -10,14 +11,13 @@ import model.enums.TaskStatus;
 import service.CSVService;
 import service.CalendarExportGateway;
 import storage.TaskList;
-import java.text.SimpleDateFormat;
 
 public class Tasks {
 
     private final TaskList taskList = new TaskList();
     private final CSVService csv = new CSVService();
 
-    private CalendarExportGateway calendarGateway = new CalendarExportGateway();
+    private final CalendarExportGateway calendarGateway = new CalendarExportGateway();
 
     public Task createTask(String title, String desc, Date dueDate, PriorityLevel priority) {
         Task t = new Task(title, desc, dueDate, priority);

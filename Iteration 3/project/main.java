@@ -1,13 +1,22 @@
+
 import controller.Tasks;
 import java.util.*;
 import model.Task;
 import model.enums.PriorityLevel;
 
 public class Main {
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         Tasks system = new Tasks();
+
+        // Test if tasks are being loaded from the database
+        List<Task> tasks = system.getAllTasks();  // This should invoke loadTasks from TaskPersistence
+        for (Task task : tasks) {
+            System.out.println("Task Title: " + task.getTitle() + " | Priority: " + task.getPriority());
+        }
+
         boolean running = true;
 
         while (running) {
@@ -49,7 +58,7 @@ public class Main {
                     // Show all tasks (loads them from persistent storage)
                     showAllTasks(system);
                     break;
-                
+
                 case 9:
                     System.out.println("Exiting...");
                     running = false;
@@ -71,7 +80,8 @@ public class Main {
         System.out.println("5. Export OPEN Tasks to ICS");
         System.out.println("6. Import Tasks (CSV)");
         System.out.println("7.  Overloaded Collaborator");
-        System.out.println("8. Exit");
+        System.out.println("8. Show all tasks (loads them from persistent storage)");
+        System.out.println("9. Exit");
     }
 
     // ================= FEATURES =================

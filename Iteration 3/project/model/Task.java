@@ -15,7 +15,7 @@ public class Task {
     private String description;
     private final Date dueDate;
     private final PriorityLevel priority;
-    public TaskStatus status;
+    private TaskStatus status;
 
     public Task(String title, String description, Date dueDate, PriorityLevel priority) {
         this.id = idCounter++;
