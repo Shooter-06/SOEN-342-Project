@@ -17,7 +17,7 @@ public class TaskPersistence {
 
     private static final String DB_URL = System.getenv().getOrDefault(
             "TASK_DB_URL",
-            "jdbc:mysql://localhost:3306/tasks_db"
+            "jdbc:mysql://localhost:3306/task_db"
     );
     private static final String DB_USER = System.getenv().getOrDefault("TASK_DB_USER", "root");
     private static final String DB_PASSWORD = System.getenv().getOrDefault("TASK_DB_PASSWORD", "password");
@@ -79,6 +79,12 @@ public class TaskPersistence {
             }
         } catch (SQLException e) {
             System.err.println("Error loading tasks from DB");
+            System.err.println(
+                    "Connection settings => TASK_DB_URL="
+                            + DB_URL
+                            + ", TASK_DB_USER="
+                            + DB_USER
+            );
             System.err.println("Message: " + e.getMessage());
             System.err.println("SQLState: " + e.getSQLState());
             System.err.println("ErrorCode: " + e.getErrorCode());
