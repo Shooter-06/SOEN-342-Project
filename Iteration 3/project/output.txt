@@ -1,0 +1,21 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+service\TaskPersistence.java:8: error: duplicate class: TaskPersistence
+public class TaskPersistence {
+       ^
+storage\TaskList.java:6: error: cannot access TaskPersistence
+import service.TaskPersistence;
+              ^
+  bad source file: .\service\TaskPersistence.java
+    file does not contain class service.TaskPersistence
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+storage\TaskList.java:11: error: cannot find symbol
+    public TaskPersistence taskPersistence = new TaskPersistence();
+           ^
+  symbol:   class TaskPersistence
+  location: class TaskList
+storage\TaskList.java:11: error: cannot find symbol
+    public TaskPersistence taskPersistence = new TaskPersistence();
+                                                 ^
+  symbol:   class TaskPersistence
+  location: class TaskList
+4 errors

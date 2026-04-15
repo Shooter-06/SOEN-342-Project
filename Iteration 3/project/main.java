@@ -3,12 +3,10 @@ import java.util.*;
 import model.Task;
 import model.enums.PriorityLevel;
 
-public class main {
-
+public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-
         Tasks system = new Tasks();
         boolean running = true;
 
@@ -47,8 +45,12 @@ public class main {
                 case 7:
                     overloadedCollaborator(system);
                     break;
-
                 case 8:
+                    // Show all tasks (loads them from persistent storage)
+                    showAllTasks(system);
+                    break;
+                
+                case 9:
                     System.out.println("Exiting...");
                     running = false;
                     break;
@@ -127,7 +129,6 @@ public class main {
 
     private static void showAllTasks(Tasks system) {
         List<Task> tasks = system.getAllTasks();
-
         for (Task t : tasks) {
             System.out.println(t.getId() + " - " + t.getTitle());
         }
@@ -136,6 +137,7 @@ public class main {
     private static void overloadedCollaborator(Tasks system) {
         System.out.println("");
     }
+
     // ================= HELPERS =================
     private static PriorityLevel choosePriority() {
         System.out.println("Choose priority:");
@@ -146,10 +148,14 @@ public class main {
         int choice = getIntInput("Choice: ");
 
         switch (choice) {
-            case 1: return PriorityLevel.LOW;
-            case 2: return PriorityLevel.MEDIUM;
-            case 3: return PriorityLevel.HIGH;
-            default: return PriorityLevel.MEDIUM;
+            case 1:
+                return PriorityLevel.LOW;
+            case 2:
+                return PriorityLevel.MEDIUM;
+            case 3:
+                return PriorityLevel.HIGH;
+            default:
+                return PriorityLevel.MEDIUM;
         }
     }
 

@@ -13,9 +13,9 @@ public class Task {
     private int id;
     private String title;
     private String description;
-    private Date dueDate;
-    private PriorityLevel priority;
-    private TaskStatus status;
+    private final Date dueDate;
+    private final PriorityLevel priority;
+    public TaskStatus status;
 
     public Task(String title, String description, Date dueDate, PriorityLevel priority) {
         this.id = idCounter++;
@@ -26,17 +26,22 @@ public class Task {
         this.status = TaskStatus.OPEN;
     }
 
+    public Task(String title, String description, Date dueDate, TaskStatus status) {
+        this.id = idCounter++;
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = PriorityLevel.MEDIUM;
+        this.status = status;
+    }
+
     private List<SubTask> subtasks = new ArrayList<>();
     private List<Collaborator> collaborators = new ArrayList<>();
     private RecurringPattern recurringPattern;
 
     public void update(Map<String, Object> fields) {
-        if (fields.containsKey("title")) {
-            this.title = (String) fields.get("title");
-        }
-        if (fields.containsKey("description")) {
-            this.description = (String) fields.get("description");
-        }
+        if (fields.containsKey("title")) this.title = (String) fields.get("title");
+        if (fields.containsKey("description")) this.description = (String) fields.get("description");
     }
 
     public void complete() {
@@ -93,5 +98,17 @@ public class Task {
 
     public PriorityLevel getPriority() {
         return priority;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", dueDate=" + dueDate +
+                ", priority=" + priority +  // Include priority in the output
+                ", status=" + status +
+                '}';
     }
 }
